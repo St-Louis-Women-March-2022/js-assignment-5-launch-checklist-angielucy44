@@ -33,28 +33,35 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    let form = document.querySelector("form");
-    form.addEventListener("submit", (event) => {
-        pilot = document.querySelector("input[name=pilotName]");
-        copilot = document.querySelector("input[name=copilotName]");
-        fuelLevel = document.querySelector("input[name=fuelLevel]");
-        cargoLevel = document.querySelector("input[name=cargoMass]");
-        list = document.getElementById('faultyItems');
+    let pilotStatus = document.getElementById('pilotStatus');
+    let copilotStatus = document.getElementById('copilotStatus');
+    let fuelStatus = document.getElementById('fuelStatus');
+    let launchStatus = document.getElementById('launchStatus');
+    let cargoStatus = document.getElementById('cargoStatus');
 
-        if (pilot.value === "" || copilot.value === "" || fuelLevel.value === "" || cargoLevel.value === "") {
-            alert("All fields are required!");
-            event.preventDefault();
 
-        } else if (validateInput(pilot.value) === 'Is a Number' || validateInput(copilot.value) === 'Is a Number') {
-            alert('Please enter text for name of pilot or co-pilot');
-            event.preventDefault();
+    if (pilot.value === "" || copilot.value === "" || fuelLevel.value === "" || cargoLevel.value === "") {
+        alert("All fields are required!");
+        // event.preventDefault();
 
-        } else if (validateInput(fuelLevel.value) === 'Not a Number' || validateInput(cargoLevel.value) === 'Not a Number') {
-                alert('Please enter numerical values for Fuel Level and Cargo Mass');
-                event.preventDefault();
-        }
-    });
-}
+    } else if (validateInput(pilot.value) === 'Is a Number' || validateInput(copilot.value) === 'Is a Number') {
+        alert('Please enter text for name of pilot or co-pilot');
+        // event.preventDefault();
+
+    } else if (validateInput(fuelLevel.value) === 'Not a Number' || validateInput(cargoLevel.value) === 'Not a Number') {
+        alert('Please enter numerical values for Fuel Level and Cargo Mass');
+        // event.preventDefault();
+    }
+    else {
+        //update pilot/copilot status
+        list.style.visibility = 'visible';
+        pilotStatus.innerHTML = `Pilot ${pilot.value} is ready`;
+        copilotStatus.innerHTML = `Co-pilot ${copilot.value} is ready`;
+        
+    }
+
+};
+
 
 let pilotStatus = document.getElementById('pilotStatus');
 let copilotStatus = document.getElementById('copilotStatus');
@@ -63,7 +70,7 @@ let launchStatus = document.getElementById('launchStatus');
 let cargoStatus = document.getElementById('cargoStatus');
 
 
-// else {
+// if {
 //     //update pilot/copilot status
 //     pilotStatus.innerHTML = `Pilot ${pilot} is ready`;
 //     copilotStatus.innerHTML = `Co-pilot ${copilot} is ready`;
