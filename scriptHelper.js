@@ -1,6 +1,7 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
 
+
 let pilotName = document.querySelector("input[name=pilotName]");
 let copilotName = document.querySelector("input[name=copilotName]");
 let fuelLevel = document.querySelector("input[name=fuelLevel]");
@@ -30,23 +31,7 @@ function validateInput(testInput) {
     } else {
         return 'Not a Number'
     }
-
 }
-if (validateInput(fuelLevel) === 'Not a Number' || validateInput(cargoLevel) === 'Not a Number') {
-    alert('Please enter numerical values for Fuel Level and Cargo Mass');
-} else if (validateInput(pilot) === 'Is a Number' || validateInput(copilot) === 'Is a Number') {
-    alert('Please do not enter numbers for name of pilot or co-pilot');
-}
-// if (testInput === "" || testInput === null || testInput === 0) {
-//     return `Empty`
-// } else if ((!isNaN(Number(testInput)))) {
-//     return `Is a Number`
-// } else {
-//     return 'Not a Number'
-// }
-
-
-
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let pilotStatus = document.getElementById('pilotStatus');
@@ -54,6 +39,13 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let fuelStatus = document.getElementById('fuelStatus');
     let launchStatus = document.getElementById('launchStatus');
     let cargoStatus = document.getElementById('cargoStatus');
+
+
+    if (validateInput(fuelLevel) === 'Not a Number' || validateInput(cargoLevel) === 'Not a Number') {
+        alert('Please enter numerical values for Fuel Level and Cargo Mass');
+    } else if (validateInput(pilot) === 'Is a Number' || validateInput(copilot) === 'Is a Number') {
+        alert('Please do not enter numbers for name of pilot or co-pilot');
+    }
 }
 
 async function myFetch() {

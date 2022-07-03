@@ -1,5 +1,8 @@
 // Write your JavaScript code here!
 
+// const { formSubmission } = 
+import("./scriptHelper");
+
 
 // window.addEventListener("load", function () {
     window.addEventListener("load", ()=> {
@@ -11,6 +14,8 @@
     let copilotName = document.querySelector("input[name=copilotName]");
     let fuelLevel = document.querySelector("input[name=fuelLevel]");
     let cargoMass = document.querySelector("input[name=cargoMass]");
+    let list = document.getElementById('faultyItems');
+
 
     // let form = document.querySelector("form");
     // form.addEventListener("submit", function (event) {
@@ -20,6 +25,7 @@
             alert("All fields are required!");
             event.preventDefault();
         }
+        formSubmission(document,list, pilotName, copilotName, fuelLevel, cargoMass);
     })
 
 
