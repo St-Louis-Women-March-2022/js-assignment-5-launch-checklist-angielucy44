@@ -4,8 +4,7 @@
 
 
 window.addEventListener("load", () => {
-    // formSubmission(document);
-    let form = document.querySelector("form");
+   let form = document.querySelector("form");
     form.addEventListener("submit", function (event) {
         event.preventDefault();
         let pilot = document.querySelector("input[name=pilotName]");
@@ -15,8 +14,6 @@ window.addEventListener("load", () => {
         let list = document.getElementById('faultyItems');
         formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel)
     })
-
-
 
     let listedPlanets;
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
@@ -28,15 +25,5 @@ window.addEventListener("load", () => {
         console.log(listedPlanets);
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
     })
-    // form.addEventListener("submit", function (event) {
-    //     event.preventDefault();
-    //     let form = document.querySelector("form");
-    //     let pilot = document.querySelector("input[name=pilotName]");
-    //     let copilot = document.querySelector("input[name=copilotName]");
-    //     let fuelLevel = document.querySelector("input[name=fuelLevel]");
-    //     let cargoLevel = document.querySelector("input[name=cargoMass]");
-    //     let list = document.getElementById('faultyItems');
-    //     alert('testing')
-    //     formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel)
-    // })
+    
 });
